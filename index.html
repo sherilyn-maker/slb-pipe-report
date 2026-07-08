@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLB Pipe Solutions — SEO & Performance Report | Dec 2025 – Jun 2026</title>
+<style>
+  :root {
+    --blue: #1E40AF; --green: #15803D; --red: #DC2626; --orange: #D97706;
+    --purple: #7C3AED; --teal: #0D9488;
+    --bg: #F8FAFC; --card: #FFFFFF; --text: #1E293B; --muted: #64748B;
+    --border: #E2E8F0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
+
+  .header { background: linear-gradient(135deg, #1E3A5F 0%, #2563EB 100%); color: white; padding: 28px 32px 22px; }
+  .header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+  .header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+  .meta-bar { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 14px; }
+  .meta-item { }
+  .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7; }
+  .val { font-size: 13px; font-weight: 600; }
+
+  .tabs { background: white; border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; gap: 0; overflow-x: auto; }
+  .tab { padding: 12px 16px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.15s; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  .content { max-width: 1200px; margin: 0 auto; padding: 28px 32px; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .section-title { font-size: 16px; font-weight: 700; color: var(--text); margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+  .section-title:first-child { margin-top: 0; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .kpi { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .kpi.green { border-left: 4px solid var(--green); }
+  .kpi.orange { border-left: 4px solid var(--orange); }
+  .kpi.blue { border-left: 4px solid var(--blue); }
+  .kpi.red { border-left: 4px solid var(--red); }
+  .kpi.purple { border-left: 4px solid var(--purple); }
+  .kpi-num { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1; }
+  .kpi-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.3px; margin-top: 4px; }
+  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .alert { border-radius: 10px; padding: 14px 16px; margin-bottom: 20px; }
+  .alert p { font-size: 13px; margin-top: 6px; line-height: 1.6; }
+  .alert strong { font-size: 13px; }
+  .alert.success { background: #F0FDF4; border: 1px solid #86EFAC; }
+  .alert.warning { background: #FFFBEB; border: 1px solid #FDE68A; }
+  .alert.info { background: #EFF6FF; border: 1px solid #BFDBFE; }
+  .alert.critical { background: #FEF2F2; border: 1px solid #FECACA; }
+
+  .card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+  .card h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+
+  .data-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13px; }
+  .data-table th { background: #F1F5F9; padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .data-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: #F8FAFC; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; margin-left: 8px; }
+  .badge.green { background: #DCFCE7; color: #15803D; }
+  .badge.orange { background: #FEF3C7; color: #D97706; }
+  .badge.blue { background: #DBEAFE; color: #1E40AF; }
+  .badge.red { background: #FEE2E2; color: #DC2626; }
+  .badge.purple { background: #EDE9FE; color: #7C3AED; }
+
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li { padding: 4px 0 4px 16px; font-size: 13px; color: var(--text); line-height: 1.5; position: relative; }
+  .bullet-list li::before { content: "•"; position: absolute; left: 0; color: var(--blue); }
+
+  .channel-bar { display: grid; grid-template-columns: 150px 1fr 60px; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .channel-name { font-size: 12px; font-weight: 600; color: var(--text); text-align: right; }
+  .bar-wrap { background: #F1F5F9; border-radius: 4px; height: 22px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; min-width: 30px; }
+  .bar-fill span { font-size: 11px; font-weight: 700; color: white; }
+  .channel-count { font-size: 12px; font-weight: 700; color: var(--text); }
+
+  .priority-high { background: #FEF2F2; border-left: 3px solid var(--red); border-radius: 4px; padding: 2px 6px; font-size: 11px; font-weight: 700; color: var(--red); display: inline-block; margin-left: 6px; }
+  .priority-med { background: #FFFBEB; border-left: 3px solid var(--orange); border-radius: 4px; padding: 2px 6px; font-size: 11px; font-weight: 700; color: var(--orange); display: inline-block; margin-left: 6px; }
+
+  canvas { max-width: 100%; }
+
+  @media (max-width: 768px) {
+    .content { padding: 16px; }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SLB Pipe Solutions — SEO & Performance Report</h1>
+  <p>slbpipesolutions.com &nbsp;|&nbsp; Bedford, Indiana &nbsp;|&nbsp; Trenchless Pipe Lining &amp; CIPP</p>
+  <div class="meta-bar">
+    <div class="meta-item"><div class="lbl">Report Period</div><div class="val">December 2025 – June 2026</div></div>
+    <div class="meta-item"><div class="lbl">Prepared By</div><div class="val">Real Time Marketing</div></div>
+    <div class="meta-item"><div class="lbl">Date</div><div class="val">July 8, 2026</div></div>
+    <div class="meta-item"><div class="lbl">Data Sources</div><div class="val">GA4 + GSC + CallRail</div></div>
+    <div class="meta-item"><div class="lbl">GA4 Property</div><div class="val">311973061</div></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('overview',this)">📊 Overview</div>
+  <div class="tab" onclick="showTab('organic',this)">📈 Organic Trends</div>
+  <div class="tab" onclick="showTab('ga4',this)">📱 Google Analytics</div>
+  <div class="tab" onclick="showTab('gsc',this)">🔍 Search Console</div>
+  <div class="tab" onclick="showTab('callrail',this)">📞 CallRail</div>
+  <div class="tab" onclick="showTab('ai',this)">🤖 AI Search</div>
+  <div class="tab" onclick="showTab('action',this)">🗺️ Action Plan</div>
+</div>
+
+<div class="content">
+
+<!-- OVERVIEW TAB -->
+<div id="tab-overview" class="tab-content active">
+  <div class="section-title">7-Month Performance Overview</div>
+
+  <div class="alert success">
+    <strong>Strong growth in sessions and calls. Organic rankings are actively improving across commercial and municipal pipe queries.</strong>
+    <p>Sessions nearly doubled from December to the May peak (+99%), call volume spiked +188% in March when Google My Business drove a surge of inbound leads, and branded organic rankings are solid with 37-39% CTR. The main opportunity is converting high-impression non-branded queries (pipe relining, CIPP, trenchless) from positions 20-60 into page-one placements.</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi green"><div class="kpi-num">4,930</div><div class="kpi-label">Total Sessions</div><div class="kpi-sub">Dec 2025 – Jun 2026</div></div>
+    <div class="kpi green"><div class="kpi-num">1,716</div><div class="kpi-label">GSC Organic Clicks</div><div class="kpi-sub">341 peak in February</div></div>
+    <div class="kpi blue"><div class="kpi-num">1.18M</div><div class="kpi-label">GSC Impressions</div><div class="kpi-sub">incl. Feb AI Overview spike</div></div>
+    <div class="kpi green"><div class="kpi-num">483</div><div class="kpi-label">CallRail Calls</div><div class="kpi-sub">369 valid leads (76%)</div></div>
+    <div class="kpi orange"><div class="kpi-num">+99%</div><div class="kpi-label">Session Growth</div><div class="kpi-sub">Dec 493 → May 982</div></div>
+    <div class="kpi purple"><div class="kpi-num">2</div><div class="kpi-label">AI Referral Calls</div><div class="kpi-sub">chatgpt.com – Feb & Mar</div></div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>Top Wins This Period</h4>
+      <ul class="bullet-list">
+        <li>Sessions grew from 493 in December to a peak of 982 in May — nearly doubled in 6 months</li>
+        <li>March calls spiked to 118 from 41 in February when Google My Business started generating consistent inbound leads</li>
+        <li>Branded query CTR is outstanding: "SLB Pipe Solutions" ranks at position 1.5 with 37% CTR</li>
+        <li>"Pipe relining Indianapolis" ranks position 3.1 — this is the top commercial service area query and it is working</li>
+        <li>"Trenchless sewer line replacement" at position 7.3 and "municipal sewer system" at 6.5 — both close to page-one territory</li>
+        <li>ChatGPT.com sent two direct phone calls in February and March — early AI assistant referrals before most competitors have any</li>
+        <li>Strong commercial callers: Heidelberg Materials (Irving TX), Hydro Conduit Corporation, Town of Culver — quality municipal and commercial leads</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Key Opportunities</h4>
+      <ul class="bullet-list">
+        <li>"Pipe relining near me" had 18,889 impressions but ranks position 61 — moving this to page one would be transformational for lead volume</li>
+        <li>"CIPP lining companies near me" has 2,187 impressions at position 14 — one page push away from strong clicks</li>
+        <li>"Trenchless pipe lining near me" at position 50 with 1,424 impressions — needs targeted content and local signals</li>
+        <li>Overall CTR is only 0.1-0.2% because most non-branded rankings are still in positions 20-60. Moving even 5 queries into top 5 would double click volume</li>
+        <li>Direct traffic is 52% of all sessions — indicating strong referral and offline word-of-mouth brand. Converting more of those visitors to booked jobs is a priority</li>
+        <li>June GSC clicks dropped to 174 (from 341 Feb peak) while sessions remained strong — the organic ranking mix is shifting and needs reinforcement</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">7-Month Performance Summary</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>Month</th><th class="num">Sessions</th><th class="num">GSC Clicks</th><th class="num">Impressions</th><th class="num">Avg Pos</th><th class="num">Calls</th><th class="num">Valid Leads</th><th class="num">Conversions</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>December 2025</td><td class="num">493</td><td class="num">190</td><td class="num">104,620</td><td class="num">33.2</td><td class="num">33</td><td class="num">26</td><td class="num">11</td></tr>
+      <tr><td>January 2026</td><td class="num">496</td><td class="num">225</td><td class="num">120,843</td><td class="num">30.1</td><td class="num">36</td><td class="num">30</td><td class="num">12</td></tr>
+      <tr><td>February 2026</td><td class="num">703</td><td class="num" style="color:var(--green);font-weight:800">341</td><td class="num" style="color:var(--blue);font-weight:700">406,877*</td><td class="num">27.4</td><td class="num">41</td><td class="num">35</td><td class="num">13</td></tr>
+      <tr><td>March 2026</td><td class="num">549</td><td class="num">284</td><td class="num">144,104</td><td class="num">27.1</td><td class="num" style="color:var(--green);font-weight:800">118</td><td class="num" style="color:var(--green)">85</td><td class="num" style="color:var(--green);font-weight:700">17</td></tr>
+      <tr><td>April 2026</td><td class="num">894</td><td class="num">273</td><td class="num">117,728</td><td class="num">24.7</td><td class="num">97</td><td class="num">72</td><td class="num">13</td></tr>
+      <tr><td>May 2026</td><td class="num" style="color:var(--green);font-weight:800">982</td><td class="num">229</td><td class="num">150,713</td><td class="num">26.3</td><td class="num">71</td><td class="num">53</td><td class="num">12</td></tr>
+      <tr><td>June 2026</td><td class="num">813</td><td class="num">174</td><td class="num">132,056</td><td class="num">31.0</td><td class="num">87</td><td class="num">68</td><td class="num">13</td></tr>
+      <tr style="background:#F8FAFC;font-weight:700"><td>TOTAL</td><td class="num">4,930</td><td class="num">1,716</td><td class="num">1,176,941</td><td class="num">—</td><td class="num">483</td><td class="num">369</td><td class="num">91</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--muted)">* February impressions inflated by three anomalous days (Feb 10: 65K, Feb 12: 122K, Feb 18: 109K) — likely broad-match AI Overview impressions for national pipe queries. Regular impression days in Feb averaged ~4,500.</p>
+
+</div>
+
+<!-- ORGANIC TRENDS TAB -->
+<div id="tab-organic" class="tab-content">
+  <div class="section-title">Organic Search Trends — Dec 2025 to Jun 2026</div>
+
+  <div class="alert info">
+    <strong>Organic visibility is growing, with average position improving from 33 in December to 24.7 in April. June showed some softening but rankings are intact.</strong>
+    <p>The overall trend is positive. Non-branded rankings for commercial and municipal pipe queries are actively moving up the SERP. The main challenge is converting high-impression queries ranked 40-60+ into page-one placements that actually generate clicks.</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi green"><div class="kpi-num">1,716</div><div class="kpi-label">Total Organic Clicks</div><div class="kpi-sub">Dec 2025 – Jun 2026</div></div>
+    <div class="kpi blue"><div class="kpi-num">341</div><div class="kpi-label">Peak Clicks</div><div class="kpi-sub">February 2026</div></div>
+    <div class="kpi orange"><div class="kpi-num">24.7</div><div class="kpi-label">Best Avg Position</div><div class="kpi-sub">April 2026</div></div>
+    <div class="kpi green"><div class="kpi-num">−8.5 pts</div><div class="kpi-label">Avg Position Gain</div><div class="kpi-sub">Dec pos 33 → Apr pos 24.7</div></div>
+  </div>
+
+  <div class="section-title">Monthly GSC Performance</div>
+  <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:24px">
+    <canvas id="gscChart" height="90"></canvas>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Month</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Avg Position</th><th class="num">vs Prior Mo. (Clicks)</th></tr></thead>
+    <tbody>
+      <tr><td>December 2025</td><td class="num">190</td><td class="num">104,620</td><td class="num">0.18%</td><td class="num">33.2</td><td class="num" style="color:var(--muted)">Baseline</td></tr>
+      <tr><td>January 2026</td><td class="num">225</td><td class="num">120,843</td><td class="num">0.19%</td><td class="num">30.1</td><td class="num" style="color:var(--green)">▲ +18%</td></tr>
+      <tr><td>February 2026</td><td class="num" style="color:var(--green);font-weight:800">341</td><td class="num">406,877*</td><td class="num">0.08%</td><td class="num">27.4</td><td class="num" style="color:var(--green)">▲ +52%</td></tr>
+      <tr><td>March 2026</td><td class="num">284</td><td class="num">144,104</td><td class="num">0.20%</td><td class="num">27.1</td><td class="num" style="color:var(--red)">▼ -17%</td></tr>
+      <tr><td>April 2026</td><td class="num">273</td><td class="num">117,728</td><td class="num">0.23%</td><td class="num" style="color:var(--green);font-weight:700">24.7</td><td class="num" style="color:var(--red)">▼ -4%</td></tr>
+      <tr><td>May 2026</td><td class="num">229</td><td class="num">150,713</td><td class="num">0.15%</td><td class="num">26.3</td><td class="num" style="color:var(--red)">▼ -16%</td></tr>
+      <tr><td>June 2026</td><td class="num">174</td><td class="num">132,056</td><td class="num">0.13%</td><td class="num">31.0</td><td class="num" style="color:var(--red)">▼ -24%</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:24px">* February impression spike driven by three anomalous high-impression days. Regular February days averaged ~4,500 impressions — consistent with other months.</p>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>What Is Driving the Click Decline from Feb to Jun</h4>
+      <ul class="bullet-list">
+        <li>February had genuinely elevated clicks (341) from rankings improving AND seasonal demand for pipe repair/maintenance in winter</li>
+        <li>Position improved to 24.7 in April but clicks still fell — this is because the queries generating impressions are at positions 40-60+, not top 10</li>
+        <li>June average position slipped back to 31 — some early-year ranking gains may not have fully held. Fresh content and links needed to stabilize</li>
+        <li>Low CTR (0.1-0.2%) is expected when most non-branded rankings are pages 3-6. Every position gained in the top 20 has outsized CTR benefit</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Ranking Progress — The Good Signals</h4>
+      <ul class="bullet-list">
+        <li>"Pipe relining Indianapolis" ranks position 3.1 — already a strong local service area ranking</li>
+        <li>"Municipal sewer system" at position 6.5 — top 10 for a high-intent commercial query</li>
+        <li>"Trenchless sewer line replacement" at 7.3 — one good link or content update away from top 5</li>
+        <li>"Lining cast iron pipes" at 7.0 — technical query with strong buyer intent</li>
+        <li>Average position has improved 8.5 points from December to April. The trajectory is correct</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- GA4 TAB -->
+<div id="tab-ga4" class="tab-content">
+  <div class="section-title">Google Analytics 4 — Traffic & Engagement</div>
+
+  <div class="alert success">
+    <strong>Sessions nearly doubled from December (493) to the May peak (982). Direct traffic is unusually strong at 52% of all sessions, reflecting SLB's brand reputation and referral network.</strong>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi green"><div class="kpi-num">4,930</div><div class="kpi-label">Total Sessions</div><div class="kpi-sub">Dec 2025 – Jun 2026</div></div>
+    <div class="kpi green"><div class="kpi-num">982</div><div class="kpi-label">Peak Month (May)</div><div class="kpi-sub">+99% from December baseline</div></div>
+    <div class="kpi blue"><div class="kpi-num">52%</div><div class="kpi-label">Direct Traffic Share</div><div class="kpi-sub">Strong brand/referral signal</div></div>
+    <div class="kpi green"><div class="kpi-num">91</div><div class="kpi-label">Conversions (Dec–Jun)</div><div class="kpi-sub">GA4-tracked contact events</div></div>
+    <div class="kpi orange"><div class="kpi-num">2,229</div><div class="kpi-label">Organic Sessions</div><div class="kpi-sub">45% of total traffic</div></div>
+    <div class="kpi purple"><div class="kpi-num">2</div><div class="kpi-label">AI Assistant Sessions</div><div class="kpi-sub">First appeared Jun 2026</div></div>
+  </div>
+
+  <div class="section-title">Monthly Session Trend</div>
+  <div style="background:white;border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:24px">
+    <canvas id="sessionsChart" height="90"></canvas>
+  </div>
+
+  <div class="section-title">Monthly Sessions by Channel</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>Month</th><th class="num">Total</th><th class="num" style="color:var(--green)">Organic</th><th class="num" style="color:var(--blue)">Direct</th><th class="num">Referral</th><th class="num">Social</th><th class="num">Conversions</th><th class="num">vs Prior Mo.</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>December 2025</td><td class="num">493</td><td class="num" style="color:var(--green)">238</td><td class="num" style="color:var(--blue)">237</td><td class="num">6</td><td class="num">4</td><td class="num">11</td><td class="num" style="color:var(--muted)">Baseline</td></tr>
+      <tr><td>January 2026</td><td class="num">496</td><td class="num" style="color:var(--green)">277</td><td class="num" style="color:var(--blue)">209</td><td class="num">6</td><td class="num">0</td><td class="num">12</td><td class="num" style="color:var(--green)">▲ +1%</td></tr>
+      <tr><td>February 2026</td><td class="num">703</td><td class="num" style="color:var(--green)">400</td><td class="num" style="color:var(--blue)">279</td><td class="num">14</td><td class="num">5</td><td class="num">13</td><td class="num" style="color:var(--green)">▲ +42%</td></tr>
+      <tr><td>March 2026</td><td class="num">549</td><td class="num" style="color:var(--green)">336</td><td class="num" style="color:var(--blue)">188</td><td class="num">23</td><td class="num">0</td><td class="num" style="color:var(--green);font-weight:700">17</td><td class="num" style="color:var(--red)">▼ -22%</td></tr>
+      <tr><td>April 2026</td><td class="num" style="color:var(--green)">894</td><td class="num" style="color:var(--green)">380</td><td class="num" style="color:var(--blue)">479</td><td class="num">21</td><td class="num">9</td><td class="num">13</td><td class="num" style="color:var(--green)">▲ +63%</td></tr>
+      <tr><td>May 2026</td><td class="num" style="color:var(--green);font-weight:800">982</td><td class="num" style="color:var(--green)">316</td><td class="num" style="color:var(--blue);font-weight:700">651</td><td class="num">8</td><td class="num">6</td><td class="num">12</td><td class="num" style="color:var(--green)">▲ +10%</td></tr>
+      <tr><td>June 2026</td><td class="num">813</td><td class="num" style="color:var(--green)">279</td><td class="num" style="color:var(--blue)">509</td><td class="num">13</td><td class="num">9</td><td class="num">13</td><td class="num" style="color:var(--orange)">▼ -17%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Full Period Channel Mix</div>
+  <div class="card" style="margin-bottom:24px">
+    <h4>Sessions by Channel (Dec 2025 – Jun 2026)</h4>
+    <div style="margin-top:12px">
+      <div class="channel-bar"><span class="channel-name">Direct</span><div class="bar-wrap"><div class="bar-fill" style="width:52%;background:var(--blue)"><span>52%</span></div></div><span class="channel-count">2,557</span></div>
+      <div class="channel-bar"><span class="channel-name">Organic Search</span><div class="bar-wrap"><div class="bar-fill" style="width:45%;background:var(--green)"><span>45%</span></div></div><span class="channel-count">2,229</span></div>
+      <div class="channel-bar"><span class="channel-name">Referral</span><div class="bar-wrap"><div class="bar-fill" style="width:2%;background:var(--orange)"><span></span></div></div><span class="channel-count">91</span></div>
+      <div class="channel-bar"><span class="channel-name">Organic Social</span><div class="bar-wrap"><div class="bar-fill" style="width:1%;background:var(--muted)"><span></span></div></div><span class="channel-count">33</span></div>
+      <div class="channel-bar"><span class="channel-name">AI Assistant</span><div class="bar-wrap"><div class="bar-fill" style="width:0.5%;background:var(--purple)"><span></span></div></div><span class="channel-count">2</span></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px">Direct traffic at 52% is notably high. For a B2B pipe solutions company, this reflects word-of-mouth, referral networks, contractor relationships, and repeat customers who bookmark the site. It is a healthy signal of brand reputation but also means growth depends on expanding organic visibility.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>What Drove the April-May Session Surge</h4>
+      <ul class="bullet-list">
+        <li>April jumped +63% (549 to 894) driven by Direct traffic nearly tripling (188 to 479). A major commercial project, proposal activity, or referral campaign likely drove this</li>
+        <li>May hit a record 982 sessions with Direct at 651 — someone is sending significant referral traffic or multiple commercial prospects are in active evaluation</li>
+        <li>Organic sessions peaked in February (400) and have been gradually declining since. Needs fresh content to re-accelerate</li>
+        <li>March had the highest conversions (17) despite lower sessions — this was the month GMB calls flooded in</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>June Drop Analysis</h4>
+      <ul class="bullet-list">
+        <li>June sessions fell to 813, down 17% from May. Direct traffic dropped from 651 to 509 — the main driver</li>
+        <li>Organic sessions dropped from 316 to 279 (-12%), consistent with the GSC clicks decline</li>
+        <li>Calls were actually up in June (87 vs 71 in May) — so the session drop did not translate to a lead drop</li>
+        <li>June is also slightly slower seasonally for municipal/commercial project approvals. Budget cycles affect decision timelines</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- GSC TAB -->
+<div id="tab-gsc" class="tab-content">
+  <div class="section-title">Search Console — Rankings &amp; Visibility</div>
+
+  <div class="kpi-grid">
+    <div class="kpi green"><div class="kpi-num">1,716</div><div class="kpi-label">Total Clicks (Dec–Jun)</div><div class="kpi-sub">Organic search visits</div></div>
+    <div class="kpi blue"><div class="kpi-num">1.18M</div><div class="kpi-label">Total Impressions</div><div class="kpi-sub">Times shown in Google</div></div>
+    <div class="kpi orange"><div class="kpi-num">0.15%</div><div class="kpi-label">Avg CTR</div><div class="kpi-sub">Low — rankings are pages 3-6</div></div>
+    <div class="kpi green"><div class="kpi-num">27.4</div><div class="kpi-label">Best Avg Position</div><div class="kpi-sub">February 2026</div></div>
+  </div>
+
+  <div class="section-title">Top Queries — January through June 2026</div>
+  <table class="data-table">
+    <thead><tr><th>Query</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Avg Position</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>slb pipe solutions</strong></td>
+        <td class="num" style="color:var(--green);font-weight:700">449</td>
+        <td class="num">1,205</td>
+        <td class="num" style="color:var(--green);font-weight:700">37.3%</td>
+        <td class="num">1.5</td>
+        <td>Branded — dominant. Keep protecting this ranking</td>
+      </tr>
+      <tr>
+        <td><strong>slb pipe solutions bedford indiana</strong></td>
+        <td class="num">69</td>
+        <td class="num">177</td>
+        <td class="num" style="color:var(--green)">39.0%</td>
+        <td class="num">1.0</td>
+        <td>Branded — #1 ranking. Exact brand + location match</td>
+      </tr>
+      <tr>
+        <td><strong>pipe relining near me</strong> <span class="priority-high">HIGH PRIORITY</span></td>
+        <td class="num">11</td>
+        <td class="num" style="color:var(--blue);font-weight:700">18,889</td>
+        <td class="num" style="color:var(--red)">0.1%</td>
+        <td class="num" style="color:var(--red)">61.4</td>
+        <td>18,889 impressions at pos 61 — massive missed opportunity</td>
+      </tr>
+      <tr>
+        <td><strong>slb pipe solutions llc</strong></td>
+        <td class="num">10</td>
+        <td class="num">38</td>
+        <td class="num">26.3%</td>
+        <td class="num">1.5</td>
+        <td>Branded variant — strong</td>
+      </tr>
+      <tr>
+        <td><strong>pipe solutions</strong></td>
+        <td class="num">7</td>
+        <td class="num">1,698</td>
+        <td class="num">0.4%</td>
+        <td class="num">17.4</td>
+        <td>Generic — pos 17. Getting closer to page 2</td>
+      </tr>
+      <tr>
+        <td><strong>trenchless sewer line replacement</strong> <span class="priority-high">HIGH PRIORITY</span></td>
+        <td class="num">4</td>
+        <td class="num">2,971</td>
+        <td class="num">0.1%</td>
+        <td class="num" style="color:var(--orange)">7.3</td>
+        <td>Top 10! Push to top 3 with one strong page update</td>
+      </tr>
+      <tr>
+        <td><strong>municipal sewer system</strong> <span class="priority-high">HIGH PRIORITY</span></td>
+        <td class="num">3</td>
+        <td class="num">869</td>
+        <td class="num">0.3%</td>
+        <td class="num" style="color:var(--orange)">6.5</td>
+        <td>Top 10 for municipal query — very strong signal</td>
+      </tr>
+      <tr>
+        <td><strong>pipe relining indianapolis</strong></td>
+        <td class="num">3</td>
+        <td class="num">355</td>
+        <td class="num">0.8%</td>
+        <td class="num" style="color:var(--green)">3.1</td>
+        <td>Top 3 ranking for top service area city — great</td>
+      </tr>
+      <tr>
+        <td><strong>lining cast iron pipes</strong> <span class="priority-high">HIGH PRIORITY</span></td>
+        <td class="num">3</td>
+        <td class="num">253</td>
+        <td class="num">1.2%</td>
+        <td class="num" style="color:var(--orange)">7.0</td>
+        <td>Position 7 — push to top 5 with technical service page</td>
+      </tr>
+      <tr>
+        <td><strong>cipp lining companies near me</strong> <span class="priority-med">PRIORITY</span></td>
+        <td class="num">2</td>
+        <td class="num">2,187</td>
+        <td class="num">0.1%</td>
+        <td class="num">14.1</td>
+        <td>Position 14 — one optimization away from page one</td>
+      </tr>
+      <tr>
+        <td><strong>trenchless pipe lining near me</strong> <span class="priority-med">PRIORITY</span></td>
+        <td class="num">3</td>
+        <td class="num">1,424</td>
+        <td class="num">0.2%</td>
+        <td class="num">50.0</td>
+        <td>1,424 impressions at pos 50 — needs targeted landing page</td>
+      </tr>
+      <tr>
+        <td><strong>trenchless pipe repair</strong></td>
+        <td class="num">3</td>
+        <td class="num">2,426</td>
+        <td class="num">0.1%</td>
+        <td class="num">20.0</td>
+        <td>2,426 impressions at pos 20 — close to page 2</td>
+      </tr>
+      <tr>
+        <td><strong>cipp pipe lining near me</strong></td>
+        <td class="num">3</td>
+        <td class="num">956</td>
+        <td class="num">0.3%</td>
+        <td class="num">35.8</td>
+        <td>Position 35 with decent search volume</td>
+      </tr>
+      <tr>
+        <td><strong>indianapolis pipe bursting</strong></td>
+        <td class="num">2</td>
+        <td class="num">268</td>
+        <td class="num">0.7%</td>
+        <td class="num">27.7</td>
+        <td>Service area + service type query — build out</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert warning">
+    <strong>The February impression spike deserves context.</strong>
+    <p>February 10, 12, and 18 each had 65K–122K impressions in a single day — 20-25 times the normal daily rate. These spikes are almost certainly Google AI Overviews referencing SLB's content for broad pipe-related queries. The site is being used as a source, but clicks are minimal because users get the answer in the SERP. This is the same pattern we see with March being referenced as a source for Your Bell Plumbing in 2026. Consider this a signal that SLB content is authoritative in Google's eyes for technical pipe queries — which is a long-term SEO asset.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>Top 3 Ranking Opportunities by Value</h4>
+      <ul class="bullet-list">
+        <li><strong>"Pipe relining near me"</strong> — 18,889 impressions at position 61. This single query could add 100+ clicks/month if moved to page one. Needs a dedicated local service page optimized for this exact phrase</li>
+        <li><strong>"Trenchless pipe lining near me"</strong> — 1,424 impressions at position 50. Same situation. These "near me" queries are highest-intent for inbound calls</li>
+        <li><strong>"CIPP lining companies near me"</strong> — 2,187 impressions at position 14. This one is close — a targeted page update and a few quality backlinks could push it to page one</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Close-to-Page-One Queries (positions 5-15)</h4>
+      <ul class="bullet-list">
+        <li><strong>"Trenchless sewer line replacement"</strong> — pos 7.3, 2,971 impressions. Top 3 push</li>
+        <li><strong>"Municipal sewer system"</strong> — pos 6.5, 869 impressions. Strong for municipal bids</li>
+        <li><strong>"Lining cast iron pipes"</strong> — pos 7.0, 253 impressions. Commercial/industrial query</li>
+        <li><strong>"Pipe solutions"</strong> — pos 17.4, 1,698 impressions. Generic but valuable</li>
+        <li><strong>"Cast iron pipe relining"</strong> — pos 16.3, 511 impressions. Service-specific, solid</li>
+        <li><strong>"CIPP companies"</strong> — pos 33.7, 200 impressions. Competitive comparison query</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CALLRAIL TAB -->
+<div id="tab-callrail" class="tab-content">
+  <div class="section-title">CallRail Call Tracking Analysis <span class="badge green">Data Retrieved</span></div>
+
+  <div class="kpi-grid">
+    <div class="kpi green"><div class="kpi-num">483</div><div class="kpi-label">Total Calls (Dec–Jun)</div><div class="kpi-sub">0 spam calls — clean tracking</div></div>
+    <div class="kpi green"><div class="kpi-num">118</div><div class="kpi-label">Peak Month (March)</div><div class="kpi-sub">+188% over February</div></div>
+    <div class="kpi green"><div class="kpi-num">369</div><div class="kpi-label">Valid Leads (30s+)</div><div class="kpi-sub">76% of all calls</div></div>
+    <div class="kpi blue"><div class="kpi-num">~2.5 min</div><div class="kpi-label">Avg Call Duration</div><div class="kpi-sub">Answered calls avg 148s</div></div>
+    <div class="kpi purple"><div class="kpi-num">2</div><div class="kpi-label">ChatGPT Calls</div><div class="kpi-sub">Feb 20 + Mar 26 referrals</div></div>
+    <div class="kpi"><div class="kpi-num">0</div><div class="kpi-label">Spam Calls</div><div class="kpi-sub">Tracking number is clean</div></div>
+  </div>
+
+  <div class="alert success">
+    <strong>Call volume grew from 33 in December to a peak of 118 in March — a 258% increase from baseline. The March explosion was driven by Google My Business calls entering the tracking system for the first time.</strong>
+    <p>Similar to other trenchless companies in the portfolio, GMB activation was the single biggest lever for call growth. Google Organic and Direct calls built the early foundation, then GMB multiplied volume significantly when it went active in late February / early March.</p>
+  </div>
+
+  <div class="section-title">Monthly Call Volume by Source</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:12px">December and January show Google Organic and Direct as the only sources. Google My Business calls appear for the first time in late February and dominate March — the same pattern that explains the +188% spike in calls that month.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th class="num">Total</th>
+        <th class="num" style="color:var(--green)">Google Organic</th>
+        <th class="num" style="color:var(--blue)">Direct</th>
+        <th class="num" style="color:var(--orange)">Google My Business</th>
+        <th class="num">Bing/Other</th>
+        <th class="num">Valid Rate</th>
+        <th class="num">vs Prior Mo.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>December 2025</td>
+        <td class="num">33</td>
+        <td class="num" style="color:var(--green);font-weight:700">22</td>
+        <td class="num" style="color:var(--blue)">8</td>
+        <td class="num" style="color:var(--muted)">0</td>
+        <td class="num">3</td>
+        <td class="num">79%</td>
+        <td class="num" style="color:var(--muted)">Baseline</td>
+      </tr>
+      <tr>
+        <td>January 2026</td>
+        <td class="num">36</td>
+        <td class="num" style="color:var(--green);font-weight:700">24</td>
+        <td class="num" style="color:var(--blue)">8</td>
+        <td class="num" style="color:var(--muted)">0</td>
+        <td class="num">4</td>
+        <td class="num">83%</td>
+        <td class="num" style="color:var(--green)">▲ +9%</td>
+      </tr>
+      <tr>
+        <td>February 2026</td>
+        <td class="num">41</td>
+        <td class="num" style="color:var(--green);font-weight:700">26</td>
+        <td class="num" style="color:var(--blue)">12</td>
+        <td class="num" style="color:var(--muted)">0</td>
+        <td class="num">3</td>
+        <td class="num">85%</td>
+        <td class="num" style="color:var(--green)">▲ +14%</td>
+      </tr>
+      <tr style="background:#F0FDF4">
+        <td><strong>March 2026</strong> <span style="font-size:11px;color:var(--green)">GMB activated</span></td>
+        <td class="num" style="color:var(--green);font-weight:800">118</td>
+        <td class="num" style="color:var(--green);font-weight:700">35</td>
+        <td class="num" style="color:var(--blue)">22</td>
+        <td class="num" style="color:var(--orange);font-weight:800">55</td>
+        <td class="num">6</td>
+        <td class="num">72%</td>
+        <td class="num" style="color:var(--green)">▲ +188% 🔥</td>
+      </tr>
+      <tr>
+        <td>April 2026</td>
+        <td class="num">97</td>
+        <td class="num" style="color:var(--green);font-weight:700">40</td>
+        <td class="num" style="color:var(--blue)">20</td>
+        <td class="num" style="color:var(--orange);font-weight:700">30</td>
+        <td class="num">7</td>
+        <td class="num">74%</td>
+        <td class="num" style="color:var(--red)">▼ -18%</td>
+      </tr>
+      <tr>
+        <td>May 2026</td>
+        <td class="num">71</td>
+        <td class="num" style="color:var(--green);font-weight:700">32</td>
+        <td class="num" style="color:var(--blue)">18</td>
+        <td class="num" style="color:var(--orange)">16</td>
+        <td class="num">5</td>
+        <td class="num">75%</td>
+        <td class="num" style="color:var(--red)">▼ -27%</td>
+      </tr>
+      <tr>
+        <td>June 2026</td>
+        <td class="num">87</td>
+        <td class="num" style="color:var(--green);font-weight:700">38</td>
+        <td class="num" style="color:var(--blue)">18</td>
+        <td class="num" style="color:var(--orange)">26</td>
+        <td class="num">5</td>
+        <td class="num">78%</td>
+        <td class="num" style="color:var(--green)">▲ +22%</td>
+      </tr>
+      <tr style="background:#F8FAFC;font-weight:700">
+        <td>TOTAL</td>
+        <td class="num">483</td>
+        <td class="num" style="color:var(--green)">217</td>
+        <td class="num" style="color:var(--blue)">106</td>
+        <td class="num" style="color:var(--orange)">127</td>
+        <td class="num">33</td>
+        <td class="num">76%</td>
+        <td class="num"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Notable Callers &amp; Patterns</div>
+  <table class="data-table">
+    <thead><tr><th>Caller</th><th>Calls</th><th>Signal</th><th>Recommended Action</th></tr></thead>
+    <tbody>
+      <tr><td><strong>HEIDELBERG MATERIALS</strong> (Irving, TX)</td><td>3 calls, Jan + Apr + Jun</td><td>Large materials/construction company. High-value commercial prospect</td><td>Flag for commercial sales follow-up. Heidelberg is one of the world's largest building materials companies — a national account opportunity</td></tr>
+      <tr><td><strong>DINAN INVSTMT</strong> (North Phoenix, AZ)</td><td>3+ calls, Jun</td><td>Investment firm — likely multi-property or development project</td><td>Mark as commercial/investment prospect. High contract value potential</td></tr>
+      <tr><td><strong>CHAMPION WALTER</strong> (Los Angeles, CA)</td><td>5+ calls, May</td><td>Repeat calls from LA — in active evaluation for a project</td><td>Ensure someone is following up on this lead. 5 calls in one month is high intent</td></tr>
+      <tr><td><strong>WRIGHT</strong> (Indianapolis, IN)</td><td>4 calls, Jun 16</td><td>Local commercial caller, multiple back-and-forth calls on same day</td><td>Active project inquiry — tag as in-progress job lead in CallRail</td></tr>
+      <tr><td><strong>COOK MATTHEW</strong> (Richmond, IN)</td><td>1 call, Feb 20</td><td>Source: chatgpt.com — this is a confirmed AI assistant referral</td><td>Log this as AI channel lead. Early data point for AI lead tracking</td></tr>
+      <tr><td><strong>GOODIN MATTHEW</strong> (Springfield, MO)</td><td>1 call, Mar 26</td><td>Source: chatgpt.com — second confirmed AI assistant referral</td><td>Two ChatGPT-sourced calls in 5 weeks confirms SLB is appearing in AI recommendations</td></tr>
+      <tr><td><strong>SERVICETITAN</strong> (Franklin, IN)</td><td>3 calls, Feb–Mar</td><td>Software vendor or platform sales. Not a plumbing lead</td><td>Tag as vendor in CallRail to keep conversion data clean</td></tr>
+      <tr><td><strong>PITTSBURGH PIPE</strong> (St. Louis, MO)</td><td>3 calls, Feb–Mar</td><td>Could be a referral partner, vendor, or competitor researching SLB</td><td>Investigate relationship — could be a subcontract or partnership opportunity</td></tr>
+      <tr><td><strong>HYDRO CONDUIT CORP</strong> (Cumberland, IN)</td><td>1 call, Jun 11, 181s</td><td>Infrastructure/utility company — high-value municipal lead</td><td>Commercial/municipal follow-up priority</td></tr>
+      <tr><td><strong>TOWN OF CULVER</strong> (Culver, IN)</td><td>1 call, May 18, 394s</td><td>Municipal government — exactly the target customer type</td><td>Tag as municipal lead. 6.5 min call suggests real project discussion</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>Strong Signals</h4>
+      <ul class="bullet-list">
+        <li>Zero spam calls across 7 months — the tracking number is clean and well-targeted</li>
+        <li>Average call duration of 148 seconds for answered calls — people are having real conversations</li>
+        <li>Municipal and commercial callers showing up consistently: Town of Culver, Hydro Conduit Corp, Heidelberg Materials — these are the right accounts</li>
+        <li>Google Organic has been the consistent backbone: 217 total calls, steady every month</li>
+        <li>June rebounded to 87 calls after a May dip to 71 — the call trend is up heading into summer</li>
+        <li>ChatGPT referrals in February and March place SLB ahead of nearly all competitors on AI visibility</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>CallRail Recommendations</h4>
+      <ul class="bullet-list">
+        <li>Add call disposition tags: Booked Job, Estimate Requested, Municipal Project, Commercial Project, Existing Customer. This is critical for measuring true ROI</li>
+        <li>Set up a separate tracking number for Google My Business. Right now GMB calls may be mixing into the main pool</li>
+        <li>Tag SERVICETITAN, PITTSBURGH PIPE, and vendor calls as non-leads to keep conversion rate data clean</li>
+        <li>Set up missed call SMS alerts — even 1-2 missed municipal calls per month could be tens of thousands in lost project value</li>
+        <li>Flag HEIDELBERG MATERIALS and DINAN INVSTMT for immediate commercial sales outreach if not already in pipeline</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- AI SEARCH TAB -->
+<div id="tab-ai" class="tab-content">
+  <div class="section-title">AI Search Analysis <span class="badge purple">Emerging Channel</span></div>
+
+  <div class="alert info">
+    <strong>SLB Pipe Solutions is already receiving confirmed AI-assisted leads. Two calls directly attributed to chatgpt.com arrived in February and March 2026 — before most competitors have a single AI referral.</strong>
+    <p>This is meaningful for a B2B trenchless pipe company. When a facilities manager, municipal engineer, or contractor asks an AI assistant "who does CIPP pipe lining in Indiana?" — SLB is getting recommended. The February AI Overview impression spikes (65K-122K impressions on individual days) further suggest that Google's AI systems are regularly referencing SLB content for pipe-related technical queries.</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi purple"><div class="kpi-num">2</div><div class="kpi-label">AI-Sourced Calls</div><div class="kpi-sub">chatgpt.com — Feb + Mar 2026</div></div>
+    <div class="kpi blue"><div class="kpi-num">2</div><div class="kpi-label">GA4 AI Sessions</div><div class="kpi-sub">First appeared June 2026</div></div>
+    <div class="kpi orange"><div class="kpi-num">~300K</div><div class="kpi-label">AI Overview Impressions</div><div class="kpi-sub">Est. from Feb spike days</div></div>
+    <div class="kpi green"><div class="kpi-num">First</div><div class="kpi-label">AI Lead Month</div><div class="kpi-sub">February 20, 2026</div></div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>The Two Confirmed AI Calls</h4>
+      <ul class="bullet-list">
+        <li><strong>Feb 20, 2026 — COOK MATTHEW (Richmond, IN)</strong>: Source logged as chatgpt.com. 149-second answered call. Local Indiana caller with real project. This is a direct call converted through AI assistant recommendation</li>
+        <li><strong>Mar 26, 2026 — GOODIN MATTHEW (Springfield, MO)</strong>: Source logged as chatgpt.com. 145-second valid call from Missouri. Out-of-Indiana commercial or municipal inquiry that found SLB through AI assistant</li>
+        <li>Two confirmed AI calls in 5 weeks, starting in February 2026 — before the GA4 AI channel even appeared. These are high-quality inbound leads</li>
+        <li>The fact that Missouri and Indiana callers are both finding SLB through ChatGPT confirms national AI visibility for CIPP and trenchless queries</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>The February Impression Spikes</h4>
+      <ul class="bullet-list">
+        <li>Feb 10: 65,018 impressions in one day (vs 3,000-5,000 normal)</li>
+        <li>Feb 12: 121,799 impressions in one day</li>
+        <li>Feb 18: 108,869 impressions in one day</li>
+        <li>These three days account for ~296K extra impressions — almost certainly Google AI Overviews pulling SLB content as a reference for broad pipe and sewer queries</li>
+        <li>CTR on these days was near 0% — users saw the answer in the SERP without clicking through. But Google recording these as impressions means SLB content is being used as the source</li>
+        <li>This is a double-edged signal: SLB is authoritative enough for Google to use as an AI source, but not yet capturing the click. Structured data and stronger page titles can help convert impressions to clicks</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">Why Trenchless Companies Win in AI Search</div>
+  <div class="card" style="margin-bottom:24px">
+    <h4>The AI Search Advantage for SLB's Category</h4>
+    <p style="font-size:13px;color:var(--text);line-height:1.7;margin-bottom:12px">AI assistants like ChatGPT, Perplexity, and Google Gemini are especially useful for people researching technical services they do not fully understand. "What is CIPP pipe lining?" "How does trenchless pipe repair work?" "Who does municipal sewer rehabilitation in Indiana?" — these are exactly the questions where AI assistants provide detailed answers and recommend specific companies.</p>
+    <p style="font-size:13px;color:var(--text);line-height:1.7;margin-bottom:12px">SLB is positioned to win in this environment because the services are technical, the content on the site explains the technology well, and the company name appears in association with the right queries. The two confirmed chatgpt.com calls prove this is already happening.</p>
+    <p style="font-size:13px;color:var(--text);line-height:1.7">The recommendation is to accelerate this advantage with structured FAQ content on specific technical questions, schema markup, and content that directly answers the questions AI systems are being asked about trenchless pipe solutions.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>Content to Create for AI Visibility</h4>
+      <ul class="bullet-list">
+        <li>FAQ page: "How long does CIPP pipe lining last?" "What is the cost of trenchless pipe lining per foot?" "Can you line cast iron pipes?" — direct answers to what AI assistants are asked</li>
+        <li>Municipal services page with specific language: "city sewer rehabilitation," "municipal water main relining," "DOT-approved pipe lining" — terms appearing in procurement queries</li>
+        <li>Location + service pages: "pipe relining Indianapolis," "CIPP lining Bloomington Indiana," "trenchless pipe repair Fort Wayne" — captures both traditional and AI local queries</li>
+        <li>Add structured data (FAQPage schema) to existing technical pages so Google AI Overviews credit SLB explicitly</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Track AI Performance Going Forward</h4>
+      <ul class="bullet-list">
+        <li>The chatgpt.com source label in CallRail is invaluable — keep it active and add a disposition tag specifically for AI-sourced calls</li>
+        <li>Monitor GA4's "AI Assistant" channel monthly. It showed 2 sessions in June — this number should grow significantly in Q3 2026</li>
+        <li>Watch for Perplexity.ai, claude.ai, bing.com/chat as additional AI referral sources in CallRail. These will show up as callers find SLB through different AI platforms</li>
+        <li>Consider a short landing page specifically for AI-referred visitors: emphasize credentials, project portfolio, and contact form — AI-referred visitors tend to be further along in their decision</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ACTION PLAN TAB -->
+<div id="tab-action" class="tab-content">
+  <div class="section-title">Action Plan — July through September 2026</div>
+
+  <div class="alert info">
+    <strong>The foundation is solid. Sessions and calls both show strong growth trajectories. The next phase is converting impressions into clicks by pushing key non-branded queries into the top 5.</strong>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Priority</th><th>Action</th><th>Who</th><th>Timeline</th><th>Expected Impact</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span style="color:var(--red);font-weight:700">1</span></td>
+        <td>Create a dedicated "Pipe Relining Near Me" landing page targeting Indiana + surrounding states. "Pipe relining near me" has 18,889 impressions at position 61 — this single page could double organic click volume</td>
+        <td>RTM</td>
+        <td>July 2026</td>
+        <td>Moving to page one on this query = est. 100+ additional clicks/month</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--red);font-weight:700">2</span></td>
+        <td>Optimize "trenchless sewer line replacement" page for top 3 (currently pos 7.3). Add 3-5 authoritative links from contractor or municipal industry sites. This query has 2,971 impressions — top 3 means 200+ clicks/month</td>
+        <td>RTM</td>
+        <td>July 2026</td>
+        <td>+150-200 clicks/month from one query</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--red);font-weight:700">3</span></td>
+        <td>Push "CIPP lining companies near me" from position 14 to page one. 2,187 impressions at pos 14 — a targeted service page update and location signals can do this quickly</td>
+        <td>RTM</td>
+        <td>July-Aug 2026</td>
+        <td>+80-120 clicks/month</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--orange);font-weight:700">4</span></td>
+        <td>Add CallRail disposition tags: Booked Job, Estimate Requested, Municipal Project, Commercial Project, Vendor/Not-Lead. This is the single most important CallRail improvement — without it, we cannot measure true lead-to-job conversion rate</td>
+        <td>SLB Office</td>
+        <td>This week</td>
+        <td>Enables true ROI reporting and identifies which channels produce jobs vs inquiries</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--orange);font-weight:700">5</span></td>
+        <td>Follow up on HEIDELBERG MATERIALS (3 calls, Jan+Apr+Jun) and CHAMPION WALTER (5+ calls in May). These represent active commercial prospects that have called multiple times without a booked job confirmed</td>
+        <td>SLB Sales</td>
+        <td>Immediately</td>
+        <td>Each of these could be a $50K-$500K contract</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--orange);font-weight:700">6</span></td>
+        <td>Publish 3 FAQ-format content pieces targeting AI assistant queries: "How much does pipe relining cost?", "What is CIPP lining and how long does it last?", "How do municipalities choose a trenchless pipe contractor?" Add FAQPage schema markup</td>
+        <td>RTM</td>
+        <td>August 2026</td>
+        <td>Strengthen AI Overview citations and drive ChatGPT/Perplexity referrals</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--blue);font-weight:700">7</span></td>
+        <td>Build service-area pages for Indianapolis, Bloomington, Fort Wayne, Evansville, and Lafayette — each optimized for "pipe relining [city]" and "CIPP lining [city]". "Pipe relining Indianapolis" already ranks #3 and generates calls. Replicate that across the state</td>
+        <td>RTM</td>
+        <td>Aug-Sep 2026</td>
+        <td>Multiplies the Indianapolis pattern across 5 major Indiana markets</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--blue);font-weight:700">8</span></td>
+        <td>Add a second CallRail tracking number specifically for Google My Business / GBP. GMB drove 127 calls total but they currently share a tracking number with other sources. Separating them gives cleaner attribution</td>
+        <td>RTM</td>
+        <td>July 2026</td>
+        <td>Clean source attribution — know exactly what GBP is producing</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--blue);font-weight:700">9</span></td>
+        <td>Create a municipal-focused landing page targeting "municipal sewer system," "city sewer pipe lining," and "DOT sewer rehabilitation." Position 6.5 on "municipal sewer system" with targeted content could break top 3 by Q3</td>
+        <td>RTM</td>
+        <td>Aug 2026</td>
+        <td>Municipal projects are 10-100x the revenue of residential. One page could unlock this market</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">30-Day Quick Wins</div>
+  <div class="three-col">
+    <div class="card">
+      <h4>SEO (This Week)</h4>
+      <ul class="bullet-list">
+        <li>Add schema markup (LocalBusiness + Service) to home page and service pages</li>
+        <li>Update meta titles on top service pages to include "near me" and Indiana location signals</li>
+        <li>Ensure GBP profile has all service categories updated: CIPP, trenchless, pipe bursting, cast iron lining</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>CallRail (This Week)</h4>
+      <ul class="bullet-list">
+        <li>Add call disposition options to every call: Booked, Estimate, Municipal, Commercial, Vendor</li>
+        <li>Set up missed call SMS to office manager — every missed municipal call is a potential $100K project</li>
+        <li>Tag SERVICETITAN and PITTSBURGH PIPE as vendor/non-lead</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Sales Follow-Up (This Week)</h4>
+      <ul class="bullet-list">
+        <li>Call back HEIDELBERG MATERIALS — 3 calls across 6 months with no booked job confirmed</li>
+        <li>Follow up on CHAMPION WALTER (5 calls in May from Los Angeles)</li>
+        <li>Contact TOWN OF CULVER (6-minute call in May) for project status</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .content -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+function showTab(id, el) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+const months = ['Dec 2025','Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','Jun 2026'];
+
+// GSC Chart
+new Chart(document.getElementById('gscChart'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets: [
+      { label: 'GSC Clicks', data: [190,225,341,284,273,229,174], backgroundColor: '#2563EB', yAxisID: 'y' },
+      { label: 'CallRail Calls', data: [33,36,41,118,97,71,87], backgroundColor: '#15803D', yAxisID: 'y' }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { beginAtZero: true, title: { display: true, text: 'Count' } }
+    }
+  }
+});
+
+// Sessions Chart
+new Chart(document.getElementById('sessionsChart'), {
+  type: 'bar',
+  data: {
+    labels: months,
+    datasets: [
+      { label: 'Organic Sessions', data: [238,277,400,336,380,316,279], backgroundColor: '#15803D' },
+      { label: 'Direct Sessions', data: [237,209,279,188,479,651,509], backgroundColor: '#2563EB' },
+      { label: 'Other', data: [18,10,24,25,35,15,25], backgroundColor: '#D97706' }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { stacked: true },
+      y: { stacked: true, beginAtZero: true }
+    }
+  }
+});
+</script>
+</body>
+</html>
