@@ -116,6 +116,8 @@
   <div class="tab" onclick="showTab('gsc',this)">🔍 Search Console</div>
   <div class="tab" onclick="showTab('callrail',this)">📞 CallRail</div>
   <div class="tab" onclick="showTab('ai',this)">🤖 AI Search</div>
+  <div class="tab" onclick="showTab('audit',this)">📝 Content Audit</div>
+  <div class="tab" onclick="showTab('blog',this)">📅 Blog Calendar</div>
   <div class="tab" onclick="showTab('action',this)">🗺️ Action Plan</div>
 </div>
 
@@ -698,6 +700,645 @@
         <li>Monitor GA4's "AI Assistant" channel monthly. It showed 2 sessions in June — this number should grow significantly in Q3 2026</li>
         <li>Watch for Perplexity.ai, claude.ai, bing.com/chat as additional AI referral sources in CallRail. These will show up as callers find SLB through different AI platforms</li>
         <li>Consider a short landing page specifically for AI-referred visitors: emphasize credentials, project portfolio, and contact form — AI-referred visitors tend to be further along in their decision</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT AUDIT TAB -->
+<div id="tab-audit" class="tab-content">
+  <div class="section-title">Content Audit — slbpipesolutions.com</div>
+
+  <div class="alert warning">
+    <strong>Every page on the site is missing a meta description. This is the single most fixable SEO gap and affects click-through rate on every organic ranking.</strong>
+    <p>Beyond that, page copy is thin (200-400 words where competitors publish 800-1,500+), major clients like IU Health, Duke Energy, and American Honda are buried on the About page instead of featured as social proof, and the 50-year guarantee appears only in a customer testimonial. The content foundation is there — it just needs depth and structure.</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi red"><div class="kpi-num">0 of 10+</div><div class="kpi-label">Pages With Meta Description</div><div class="kpi-sub">Every page audited is missing one</div></div>
+    <div class="kpi orange"><div class="kpi-num">~300 words</div><div class="kpi-label">Avg Page Word Count</div><div class="kpi-sub">Competitors avg 800-1,500</div></div>
+    <div class="kpi orange"><div class="kpi-num">10 posts</div><div class="kpi-label">Blog Posts (all municipal)</div><div class="kpi-sub">Zero residential or how-to content</div></div>
+    <div class="kpi red"><div class="kpi-num">0</div><div class="kpi-label">Schema Markup</div><div class="kpi-sub">No FAQ, LocalBusiness, or Service schema</div></div>
+  </div>
+
+  <div class="section-title">Page-by-Page Audit</div>
+
+  <!-- HOME PAGE -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">🏠 Home Page — slbpipesolutions.com</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Current title: "Leading Pipe Lining Company Indianapolis, IN | SLB Pipe Solutions"</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge red">Missing Meta</span>
+        <span class="badge orange">Thin Copy</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li><strong>No meta description</strong> — Google will auto-generate one, usually from random body text. Write a compelling 155-character description that highlights trenchless + Indiana + free estimate</li>
+          <li><strong>H1 is vague:</strong> "The Expert You Can Trust for Sewer Services in The Hoosier State" — should name the specific service and city: "Trenchless Pipe Lining &amp; CIPP Repair in Indiana"</li>
+          <li><strong>50-year guarantee buried</strong> — mentioned only in a testimonial. This should be a badge or guarantee block above the fold</li>
+          <li><strong>Major clients hidden</strong> — IU Health, Duke Energy, American Honda, P&G, City of Noblesville are on the About page. Homepage needs a client logo bar</li>
+          <li><strong>No stats or proof</strong> — no "X projects completed," "X years in business," "serving Indiana since XXXX"</li>
+          <li><strong>Service area copy thin</strong> — lists cities but no local signals for Google (no mention of neighborhoods, counties, or specific project types per area)</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li><strong>Meta description:</strong> "SLB Pipe Solutions offers trenchless pipe lining, CIPP repair, and sewer camera inspection across Indiana. Locally owned. 50-year guarantee. Free estimates — call (317) 536-1811."</li>
+          <li><strong>New H1:</strong> "Indiana's Trenchless Pipe Lining Experts — No Digging Required"</li>
+          <li>Add a "Why SLB" section with 3 stats: projects completed, years in service, guarantee length</li>
+          <li>Add client logo bar: IU Health, Duke Energy, American Honda, P&G, City of Noblesville</li>
+          <li>Add a "50-Year Guarantee" badge/callout near the top of the page</li>
+          <li>Add FAQ schema for the top 3-4 questions that appear in AI search results</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES PAGE -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">🔧 Services Page — /services/</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Current title: "Residential Services in Indianapolis, IN | SLB Pipe Solutions" — URL is /services/ but title says Residential only</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge red">Title Mismatch</span>
+        <span class="badge orange">Thin Copy</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li><strong>Title says "Residential"</strong> on a page that covers all services — this confuses Google and likely hurts commercial/municipal rankings from this URL</li>
+          <li><strong>Service descriptions are 2-3 sentences each</strong> — not enough for Google to rank this page for individual service queries</li>
+          <li><strong>No meta description</strong></li>
+          <li><strong>No internal links</strong> to dedicated service pages — if those pages exist, they're not being reinforced from here</li>
+          <li><strong>No pricing signals</strong> — even a "starting from" or "cost varies by pipe diameter" helps capture cost-related searches</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li><strong>Fix the title:</strong> "Trenchless Pipe Services in Indiana — Lining, Bursting, Camera Inspection | SLB Pipe Solutions"</li>
+          <li>Expand each service section to 100-150 words with: what it is, when you need it, what to expect, and a CTA</li>
+          <li>Add a "How It Works" step graphic for CIPP lining (most searched service)</li>
+          <li>Add a pricing FAQ block: "CIPP lining typically costs $80-$250 per linear foot depending on pipe diameter and condition"</li>
+          <li>Add Service schema markup to each service section</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT PAGE -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">ℹ️ About Page — /about/</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Current title: "Pipe Lining Service Provider Indianapolis, IN | SLB Pipe Solutions"</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge orange">Clients Buried</span>
+        <span class="badge orange">Missing Proof</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li><strong>Major clients listed but not featured</strong> — IU Health, Duke Energy, American Honda Manufacturing, Procter &amp; Gamble, City of Noblesville, City of Zionsville are the strongest trust signals on the entire site. They are in a bulleted list</li>
+          <li><strong>No team photos or bios</strong> — for a company winning municipal contracts, decision-makers want to know who they're hiring</li>
+          <li><strong>No certifications listed</strong> — NASSCO, NUCA, IPBA, or state contractor licenses should be prominently featured</li>
+          <li><strong>No founding year or company history</strong></li>
+          <li><strong>No meta description</strong></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li>Build a proper client logo showcase: IU Health, Duke Energy, Honda, P&G, City of Noblesville — these are Fortune 500 and government clients that will close commercial deals</li>
+          <li>Add a "Our Story" section with founding year, mission, and growth milestones</li>
+          <li>Add team section with photos (even just the owner/lead tech) — builds trust for municipal RFPs</li>
+          <li>Add certifications and license numbers in a "Credentials" block</li>
+          <li>Add "X projects completed" and "X miles of pipe relined" stats</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MUNICIPAL PAGE -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">🏛️ Municipal Page — /municipal/</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Currently resolves to a blog post about excavation planning — no dedicated municipal landing page exists</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge red">Page Missing</span>
+        <span class="badge red">High Priority</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li><strong>No dedicated municipal landing page</strong> — /municipal/ serves a blog article. Municipal clients (cities, counties, utilities) need a dedicated page with RFP process, compliance info, and case studies</li>
+          <li><strong>GSC shows "municipal sewer system" at position 6.5</strong> — there is no proper page to land these searchers on</li>
+          <li><strong>Named clients (City of Noblesville, City of Zionsville) are not featured</strong> anywhere municipals would look</li>
+          <li><strong>No bid/RFP process information</strong> — how do municipalities engage SLB for a project?</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li><strong>Create a proper /municipal/ page</strong> targeting: "municipal sewer rehabilitation Indiana," "city sewer pipe lining contractor," "CIPP lining municipalities Indiana"</li>
+          <li>Feature City of Noblesville and City of Zionsville as named case studies with project scope and outcome</li>
+          <li>Add a section on EPA compliance, NASSCO standards, and bidding process</li>
+          <li>Add a "Request a Municipal Quote" CTA with a dedicated form for government projects</li>
+          <li>This page alone could capture the "municipal sewer system" traffic at pos 6.5 and drive high-value contracts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMERCIAL PAGE -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">🏢 Commercial/Industrial Page — /commercial/</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Current title: "Industrial Trenchless Services Indianapolis, IN | SLB Pipe Solutions"</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge orange">No Case Studies</span>
+        <span class="badge orange">Missing Proof</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li>Good technical content but zero proof — Duke Energy, Honda, and P&G are clients but not mentioned here</li>
+          <li>Services (microtunneling, hydro jetting, camera inspection) listed but not explained deeply enough for facility managers making large purchasing decisions</li>
+          <li>No meta description</li>
+          <li>No mention of project sizes, turnaround times, or minimum scope SLB handles</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li>Add case study snippets: "Duke Energy — replaced 400 ft of 8-inch industrial drain with zero production downtime"</li>
+          <li>Add "Industries We Serve" section: manufacturing, healthcare, logistics, government, multi-family</li>
+          <li>Add a download or checklist CTA: "Commercial Pipe Assessment Checklist" — captures facility manager leads</li>
+          <li>Add Microtunneling as a service with its own section — it appears in the copy but gets no SEO focus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE AREA PAGES -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">📍 Service Area Pages — Indianapolis, Bloomington, Bedford, Evansville, Louisville</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">All area pages audited. Indianapolis is the strongest; Bloomington is very thin.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge orange">Thin Content</span>
+        <span class="badge orange">Missing Meta</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li><strong>Bloomington page</strong> is almost entirely generic trenchless benefits — no local signals, no neighborhood names, no local project mentions</li>
+          <li><strong>All area pages missing meta descriptions</strong></li>
+          <li><strong>No area-specific photos or project mentions</strong> — makes pages look identical to each other</li>
+          <li><strong>Fort Wayne, Lafayette, Terre Haute, Columbus IN</strong> — cities with significant GSC impressions and call traffic but no service area pages</li>
+          <li>Bloomington page has H3s like "Saves Time," "Saves Money" — generic, no local differentiation</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li>Add local signals to each page: county name, nearby neighborhoods, local utility companies, any named local projects</li>
+          <li>Create new service area pages for: Fort Wayne, Lafayette, Terre Haute, Columbus IN — all have confirmed call traffic</li>
+          <li>Add a local FAQ section to each area page: "Do you service [city] pipe relining emergencies?" etc.</li>
+          <li>Embed Google Maps for each area with a service radius visible</li>
+          <li>Add meta descriptions for every page. Example for Bloomington: "Trenchless pipe lining in Bloomington, IN — no digging required. CIPP, hydro jetting, and sewer camera inspection for homes and businesses. Free estimate: (317) 536-1811."</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ PAGE -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">❓ FAQ Page — /faqs/</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">18 questions — mostly residential homeowner basics. Thin answers. No schema.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge orange">No Schema</span>
+        <span class="badge orange">Missing Topics</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li><strong>No FAQPage schema</strong> — these questions should be appearing in Google's "People Also Ask" boxes and AI Overviews but they are invisible to structured data parsers</li>
+          <li>Answers average 2-3 sentences — too thin to rank in PAA or be cited by AI assistants</li>
+          <li><strong>Entirely residential focus</strong> — no commercial or municipal questions</li>
+          <li>Missing high-value questions: "How much does pipe relining cost per foot?", "How long does CIPP lining last?", "Do you need permits for trenchless pipe repair?", "What pipe diameters can you line?"</li>
+          <li>Some answers recommend professional help without explaining why SLB specifically is the right choice</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li><strong>Add FAQPage schema markup</strong> — this is the fastest way to appear in AI Overview citations and PAA boxes</li>
+          <li>Expand answers to 75-150 words each with specific, detailed responses</li>
+          <li>Add 10 new questions targeting AI search: "What is the best pipe lining company near me?", "How long does CIPP pipe lining last?", "Can you line cast iron pipes?", "What size pipes can be lined?"</li>
+          <li>Add a commercial/municipal FAQ section: "Do you handle municipal sewer bids?", "Can you work on pipes over 18 inches?"</li>
+          <li>Add cost FAQ: "Pipe relining in Indiana typically costs $X-$X per linear foot depending on pipe diameter, material, and length"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div class="card" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+      <div>
+        <h4 style="font-size:15px">📝 Blog — /about-us/blog/</h4>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">10 posts total — all municipal/commercial focused. No residential, no local area content.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-shrink:0">
+        <span class="badge orange">Narrow Topics</span>
+        <span class="badge blue">Good Base</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:6px">Issues Found</div>
+        <ul class="bullet-list">
+          <li>All 10 posts focus on municipal/commercial topics — zero homeowner-facing content despite residential being a core service</li>
+          <li>No "near me" content — blog posts do not use local keywords (Indiana cities, county names)</li>
+          <li>Blog URL is /about-us/blog/ — this is a non-ideal URL structure. Blog posts should be at /blog/[post-slug] for cleaner SEO</li>
+          <li>No visible publish dates in the blog listing — hurts freshness signals for Google</li>
+          <li>No internal linking from blog posts back to service pages (based on the posts reviewed)</li>
+          <li>Topics like "UV Curing" and "Bedford Pipeline Projects" are strong but not targeting search queries with volume</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:6px">Recommended Fixes</div>
+        <ul class="bullet-list">
+          <li>Add publish dates and author names to all posts — signals freshness to Google</li>
+          <li>Add internal links from every blog post to at least 2 service pages or area pages</li>
+          <li>Write residential-focused content: homeowner guides, cost breakdowns, "what to expect" posts</li>
+          <li>Write local area content: "Pipe lining in Bloomington IN," "Sewer repair options in Evansville"</li>
+          <li>Ensure each post targets a specific GSC query with search volume (see blog calendar)</li>
+          <li>Add a featured image and meta description to every post</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERALL SCORE -->
+  <div class="section-title">Overall Site Health Summary</div>
+  <table class="data-table">
+    <thead><tr><th>Issue</th><th>Severity</th><th>Pages Affected</th><th>Effort</th><th>SEO Impact</th></tr></thead>
+    <tbody>
+      <tr><td>Missing meta descriptions on all pages</td><td><span class="badge red">Critical</span></td><td>All pages</td><td>Low — write and paste</td><td>Immediate CTR improvement on all rankings</td></tr>
+      <tr><td>No dedicated municipal landing page</td><td><span class="badge red">Critical</span></td><td>/municipal/</td><td>Medium — new page</td><td>Captures "municipal sewer system" pos 6.5 traffic</td></tr>
+      <tr><td>No FAQPage or LocalBusiness schema</td><td><span class="badge red">Critical</span></td><td>FAQ, Home, Service pages</td><td>Low — add JSON-LD</td><td>AI Overview citations and PAA appearances</td></tr>
+      <tr><td>Major clients not featured prominently</td><td><span class="badge orange">High</span></td><td>Home, Commercial, Municipal</td><td>Low — add logos and quotes</td><td>Increases commercial/municipal conversion rate</td></tr>
+      <tr><td>50-year guarantee not featured</td><td><span class="badge orange">High</span></td><td>Home, service pages</td><td>Low — add badge/callout</td><td>Differentiator that reduces price objection</td></tr>
+      <tr><td>Thin page copy (avg 300 words)</td><td><span class="badge orange">High</span></td><td>All pages</td><td>High — needs writing</td><td>Required to rank for non-branded queries</td></tr>
+      <tr><td>Service area pages missing local signals</td><td><span class="badge orange">High</span></td><td>All 5 area pages</td><td>Medium — rewrite sections</td><td>Local pack and area-specific organic rankings</td></tr>
+      <tr><td>Blog narrow in topic (municipal only)</td><td><span class="badge orange">Medium</span></td><td>Blog</td><td>Ongoing — new content</td><td>Residential organic traffic currently zero</td></tr>
+      <tr><td>No new service area pages (Fort Wayne, Lafayette, etc.)</td><td><span class="badge orange">Medium</span></td><td>Missing pages</td><td>Medium — new pages</td><td>Captures confirmed call traffic from these cities</td></tr>
+      <tr><td>FAQ answers are too short</td><td><span class="badge blue">Medium</span></td><td>FAQ page</td><td>Low-Medium — expand answers</td><td>AI Overview citations require 75-150 word answers</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- BLOG CALENDAR TAB -->
+<div id="tab-blog" class="tab-content">
+  <div class="section-title">Blog Content Calendar — July through December 2026</div>
+
+  <div class="alert info">
+    <strong>24 posts across 6 months (4 per month), each targeting a specific search query with confirmed impressions in GSC or high commercial intent. The strategy balances residential how-to content, local area targeting, municipal/commercial B2B content, and AI assistant optimization.</strong>
+    <p>Posts are ordered so that the highest-traffic opportunities publish first. Each post includes the target query, estimated monthly search volume, the angle to take, and what internal pages to link from the post.</p>
+  </div>
+
+  <div class="three-col" style="margin-bottom:24px">
+    <div class="card">
+      <h4>Content Mix Strategy</h4>
+      <div style="margin-top:8px">
+        <div class="channel-bar"><span class="channel-name">Residential How-To</span><div class="bar-wrap"><div class="bar-fill" style="width:33%;background:var(--green)"><span>33%</span></div></div><span class="channel-count">8 posts</span></div>
+        <div class="channel-bar"><span class="channel-name">Municipal/Commercial</span><div class="bar-wrap"><div class="bar-fill" style="width:29%;background:var(--blue)"><span>29%</span></div></div><span class="channel-count">7 posts</span></div>
+        <div class="channel-bar"><span class="channel-name">Local Area Targeting</span><div class="bar-wrap"><div class="bar-fill" style="width:25%;background:var(--orange)"><span>25%</span></div></div><span class="channel-count">6 posts</span></div>
+        <div class="channel-bar"><span class="channel-name">Technical/AI-Optimized</span><div class="bar-wrap"><div class="bar-fill" style="width:13%;background:var(--purple)"><span>13%</span></div></div><span class="channel-count">3 posts</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h4>Top Target Queries from GSC</h4>
+      <ul class="bullet-list">
+        <li>"pipe relining near me" — 18,889 imp, pos 61</li>
+        <li>"trenchless pipe lining near me" — 1,424 imp, pos 50</li>
+        <li>"CIPP lining companies near me" — 2,187 imp, pos 14</li>
+        <li>"trenchless sewer line replacement" — 2,971 imp, pos 7.3</li>
+        <li>"lining cast iron pipes" — 253 imp, pos 7</li>
+        <li>"municipal sewer system" — 869 imp, pos 6.5</li>
+        <li>"pipe relining Indianapolis" — 355 imp, pos 3.1</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>AI Assistant Questions to Target</h4>
+      <ul class="bullet-list">
+        <li>"How much does pipe relining cost?"</li>
+        <li>"What is CIPP pipe lining?"</li>
+        <li>"How long does pipe relining last?"</li>
+        <li>"Can you line cast iron pipes?"</li>
+        <li>"What size pipes can be relined?"</li>
+        <li>"Is trenchless pipe repair worth it?"</li>
+        <li>"Who does municipal sewer lining in Indiana?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JULY -->
+  <div class="section-title" style="background:linear-gradient(90deg,#DBEAFE,transparent);padding:8px 12px;border-radius:6px;border:none">📅 July 2026 — Foundation: Cost, Comparison &amp; Local Indiana</div>
+  <table class="data-table" style="margin-bottom:8px">
+    <thead><tr><th>#</th><th>Blog Post Title</th><th>Target Query</th><th>Type</th><th>Key Points to Cover</th><th>Internal Links</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Jul 1</td>
+        <td><strong>How Much Does Pipe Relining Cost in Indiana? 2026 Pricing Guide</strong></td>
+        <td>"pipe relining cost," "how much does pipe relining cost"</td>
+        <td><span class="badge blue">Residential</span></td>
+        <td>Cost per linear foot ($80-$250 range), factors that affect price (diameter, material, length, access), why trenchless costs less than excavation long-term, free estimate CTA</td>
+        <td>Services page, Contact, Indianapolis area page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Jul 2</td>
+        <td><strong>CIPP Pipe Lining vs. Pipe Bursting: Which Does Your Sewer Line Need?</strong></td>
+        <td>"pipe lining vs pipe bursting," "CIPP vs pipe bursting"</td>
+        <td><span class="badge blue">Residential</span></td>
+        <td>Head-to-head comparison table, when lining works (structurally sound), when bursting is needed (collapsed/severely damaged), cost comparison, SLB's recommendation process</td>
+        <td>Services page, FAQ page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Jul 3</td>
+        <td><strong>Pipe Lining Services in Bloomington, IN: A Local Guide for Homeowners and Property Managers</strong></td>
+        <td>"pipe lining Bloomington IN," "trenchless repair Bloomington Indiana"</td>
+        <td><span class="badge orange">Local Area</span></td>
+        <td>Common pipe problems in Bloomington (older housing stock, IU campus buildings, limestone geology), local service examples, why trenchless is ideal for Bloomington properties, response time</td>
+        <td>Bloomington service area page, Services page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Jul 4</td>
+        <td><strong>5 Signs Your Sewer Line Needs Relining (Not Full Replacement)</strong></td>
+        <td>"sewer line relining signs," "do I need pipe relining"</td>
+        <td><span class="badge green">How-To</span></td>
+        <td>Slow drains, recurring clogs, foul odors, wet spots in yard, high water bills — with photos/graphics, when relining is enough vs when bursting or excavation is needed</td>
+        <td>Services page, FAQ page, Contact</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- AUGUST -->
+  <div class="section-title" style="background:linear-gradient(90deg,#DCFCE7,transparent);padding:8px 12px;border-radius:6px;border:none;margin-top:28px">📅 August 2026 — Municipal Budget Season &amp; Technical Authority</div>
+  <table class="data-table" style="margin-bottom:8px">
+    <thead><tr><th>#</th><th>Blog Post Title</th><th>Target Query</th><th>Type</th><th>Key Points to Cover</th><th>Internal Links</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Aug 1</td>
+        <td><strong>The Complete Guide to CIPP Lining: How Cured-in-Place Pipe Works (and Why It Lasts 50 Years)</strong></td>
+        <td>"what is CIPP lining," "how does CIPP pipe lining work"</td>
+        <td><span class="badge purple">AI-Optimized</span></td>
+        <td>Step-by-step process with diagrams, materials used (epoxy resin, felt liner), UV curing vs steam curing, 50-year lifespan explanation, pipe diameters SLB handles (2-18 inch), FAQ schema format</td>
+        <td>Services page, FAQ page, Municipal page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Aug 2</td>
+        <td><strong>Cast Iron Pipe Lining: What Homeowners, Property Managers, and Cities Need to Know</strong></td>
+        <td>"lining cast iron pipes," "cast iron pipe relining"</td>
+        <td><span class="badge blue">Mixed</span></td>
+        <td>Why cast iron corrodes (age, minerals, root intrusion), what CIPP lining does to cast iron, typical pipe ages in Indiana cities, when cast iron can be lined vs replaced, industrial/municipal applications</td>
+        <td>Services page, Commercial page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Aug 3</td>
+        <td><strong>Trenchless Pipe Repair in Evansville, IN: Residential and Commercial Options</strong></td>
+        <td>"pipe repair Evansville IN," "trenchless Evansville Indiana"</td>
+        <td><span class="badge orange">Local Area</span></td>
+        <td>Evansville infrastructure age (lots of older clay and cast iron), riverfront commercial property considerations, response times from Bedford, service types available, local project examples if available</td>
+        <td>Evansville service area page, Services page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Aug 4</td>
+        <td><strong>How Indiana Municipalities Plan and Budget for Sewer Rehabilitation Projects</strong></td>
+        <td>"municipal sewer rehabilitation Indiana," "city sewer line replacement cost"</td>
+        <td><span class="badge blue">Municipal</span></td>
+        <td>Indiana DEM requirements, typical project timeline from assessment to completion, how CIPP compares to open-cut on a per-foot basis, budgeting resources for city engineers, how to request an SLB municipal quote</td>
+        <td>Municipal page, Commercial page, Contact</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SEPTEMBER -->
+  <div class="section-title" style="background:linear-gradient(90deg,#FEF3C7,transparent);padding:8px 12px;border-radius:6px;border:none;margin-top:28px">📅 September 2026 — Commercial B2B &amp; Fall Urgency</div>
+  <table class="data-table" style="margin-bottom:8px">
+    <thead><tr><th>#</th><th>Blog Post Title</th><th>Target Query</th><th>Type</th><th>Key Points to Cover</th><th>Internal Links</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Sep 1</td>
+        <td><strong>Trenchless Sewer Repair Before Winter: Why Fall Is the Best Time to Schedule</strong></td>
+        <td>"fall sewer line repair," "schedule pipe relining before winter"</td>
+        <td><span class="badge green">Seasonal</span></td>
+        <td>Why cold weather complicates pipe lining (ground movement, resin curing temps), fall availability vs spring rush, frozen pipe prevention as a reason to act now, limited schedule slots CTA</td>
+        <td>Services page, Contact, FAQ page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Sep 2</td>
+        <td><strong>Pipe Relining for Commercial Properties in Indianapolis: What Facility Managers Need to Know</strong></td>
+        <td>"commercial pipe relining Indianapolis," "pipe lining for businesses Indianapolis"</td>
+        <td><span class="badge blue">Commercial</span></td>
+        <td>Minimizing downtime for commercial properties, after-hours scheduling options, multi-building property management considerations, case study format (Duke Energy or Honda-style), ROI vs replacement</td>
+        <td>Commercial page, Indianapolis area page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Sep 3</td>
+        <td><strong>Choosing a CIPP Contractor for Your Municipal Sewer Project: 8 Questions to Ask</strong></td>
+        <td>"how to choose CIPP contractor," "municipal CIPP lining contractor Indiana"</td>
+        <td><span class="badge blue">Municipal</span></td>
+        <td>Certifications to require (NASSCO, NUCA), insurance and bonding requirements, UV vs steam curing — which to spec, project management capabilities, local vs national contractor trade-offs, why SLB wins on all criteria</td>
+        <td>Municipal page, About page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Sep 4</td>
+        <td><strong>What Is Hydro Jetting and When Does Your Home or Business Need It?</strong></td>
+        <td>"what is hydro jetting," "hydro jetting cost Indiana"</td>
+        <td><span class="badge green">How-To</span></td>
+        <td>How hydro jetting works (PSI, water volume), what it clears vs what it cannot (root intrusion needs inspection first), residential vs commercial applications, cost range, when to do it before pipe lining</td>
+        <td>Services page, FAQ page</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- OCTOBER -->
+  <div class="section-title" style="background:linear-gradient(90deg,#FEE2E2,transparent);padding:8px 12px;border-radius:6px;border:none;margin-top:28px">📅 October 2026 — Expand Service Areas &amp; Authority Content</div>
+  <table class="data-table" style="margin-bottom:8px">
+    <thead><tr><th>#</th><th>Blog Post Title</th><th>Target Query</th><th>Type</th><th>Key Points to Cover</th><th>Internal Links</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Oct 1</td>
+        <td><strong>Pipe Relining in Fort Wayne, IN: Trenchless Solutions for Older Homes and Commercial Buildings</strong></td>
+        <td>"pipe relining Fort Wayne IN," "trenchless pipe repair Fort Wayne Indiana"</td>
+        <td><span class="badge orange">Local Area</span></td>
+        <td>Fort Wayne's aging infrastructure (many pre-1970 clay and cast iron pipes), service response time from Bedford, residential and commercial scope, how to request service in NE Indiana</td>
+        <td>Services page, Contact — will support creation of Fort Wayne service area page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Oct 2</td>
+        <td><strong>Sewer Camera Inspection in Indianapolis: What It Costs, How It Works, and What to Expect</strong></td>
+        <td>"sewer camera inspection Indianapolis," "sewer scope inspection cost Indiana"</td>
+        <td><span class="badge green">How-To</span></td>
+        <td>Cost range ($150-$400 typical), what the camera shows, types of damage identified, how it connects to relining vs repair recommendations, what a clean inspection looks like vs a problem one</td>
+        <td>Indianapolis area page, Services page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Oct 3</td>
+        <td><strong>EPA and IDEM Compliance for Municipal Sewer Systems: What Indiana Cities Need to Know in 2026</strong></td>
+        <td>"EPA sewer compliance Indiana," "IDEM municipal sewer requirements"</td>
+        <td><span class="badge blue">Municipal</span></td>
+        <td>IDEM permit requirements for sewer work, EPA Clean Water Act implications, how CIPP lining satisfies regulatory requirements vs replacement, SLB's compliance track record, CTA for municipal consultation</td>
+        <td>Municipal page, About page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Oct 4</td>
+        <td><strong>How Long Does Pipe Relining Last? The 50-Year Guarantee Explained</strong></td>
+        <td>"how long does pipe relining last," "pipe relining lifespan"</td>
+        <td><span class="badge purple">AI-Optimized</span></td>
+        <td>What makes CIPP liner last 50 years (ASTM-tested materials, no joints, corrosion resistance), comparison to PVC (25-40 yr), cast iron (50-100 yr original, less when corroded), what voids the warranty, SLB's guarantee terms</td>
+        <td>Services page, FAQ page, About page</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- NOVEMBER -->
+  <div class="section-title" style="background:linear-gradient(90deg,#EDE9FE,transparent);padding:8px 12px;border-radius:6px;border:none;margin-top:28px">📅 November 2026 — Winter Prep &amp; Service Expansion</div>
+  <table class="data-table" style="margin-bottom:8px">
+    <thead><tr><th>#</th><th>Blog Post Title</th><th>Target Query</th><th>Type</th><th>Key Points to Cover</th><th>Internal Links</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Nov 1</td>
+        <td><strong>Frozen Pipe Prevention: What Indiana Homeowners Should Do Before Winter Hits</strong></td>
+        <td>"frozen pipe prevention Indiana," "how to prevent frozen pipes"</td>
+        <td><span class="badge green">Seasonal</span></td>
+        <td>Indiana-specific freeze thresholds, insulation checklist by pipe location (crawl space, exterior walls, garage), what to do if pipes freeze, why pre-winter sewer inspection protects you, emergency service availability</td>
+        <td>FAQ page, Services page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Nov 2</td>
+        <td><strong>What Is Pipe Bursting and When Is It Better Than Relining?</strong></td>
+        <td>"what is pipe bursting," "pipe bursting vs relining"</td>
+        <td><span class="badge purple">AI-Optimized</span></td>
+        <td>How pipe bursting works (fracturing head, simultaneous HDPE pull-through), pipe conditions that require it (collapsed, severely offset), size upgrade capability, cost vs relining, Indiana soil conditions that affect the choice</td>
+        <td>Services page, FAQ page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Nov 3</td>
+        <td><strong>Trenchless Pipe Repair in Lafayette and West-Central Indiana</strong></td>
+        <td>"pipe repair Lafayette IN," "trenchless sewer Lafayette Indiana"</td>
+        <td><span class="badge orange">Local Area</span></td>
+        <td>Lafayette and Tippecanoe County infrastructure, Purdue campus and commercial district properties, response times, service types, how to book an assessment in the Lafayette area</td>
+        <td>Services page, Contact — supports future Lafayette area page</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Nov 4</td>
+        <td><strong>2027 Municipal Infrastructure Planning: Why CIPP Is Your Lowest-Cost Sewer Solution</strong></td>
+        <td>"municipal infrastructure 2027 planning," "CIPP cost per foot vs open cut"</td>
+        <td><span class="badge blue">Municipal</span></td>
+        <td>Cost per foot comparison (CIPP $80-$200/ft vs open cut $200-$600/ft), traffic disruption savings, project timeline (CIPP days vs months for open cut), case study format with City of Noblesville or similar, RFP invitation</td>
+        <td>Municipal page, About page, Contact</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- DECEMBER -->
+  <div class="section-title" style="background:linear-gradient(90deg,#DBEAFE,transparent);padding:8px 12px;border-radius:6px;border:none;margin-top:28px">📅 December 2026 — Year-End, New Areas &amp; 2027 Planning</div>
+  <table class="data-table" style="margin-bottom:8px">
+    <thead><tr><th>#</th><th>Blog Post Title</th><th>Target Query</th><th>Type</th><th>Key Points to Cover</th><th>Internal Links</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Dec 1</td>
+        <td><strong>Pipe Relining in Columbus, IN and Southern Indiana: Serving Lawrence County and Beyond</strong></td>
+        <td>"pipe relining Columbus IN," "trenchless pipe repair southern Indiana"</td>
+        <td><span class="badge orange">Local Area</span></td>
+        <td>Columbus area infrastructure, proximity to Bedford headquarters (fastest response time), Bartholomew County commercial and residential projects, how to book service, what to expect on first call</td>
+        <td>Bedford area page, Services page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--green)">Dec 2</td>
+        <td><strong>How to Prevent Sewer Line Backups This Winter: The Indiana Homeowner's Guide</strong></td>
+        <td>"sewer backup prevention winter," "how to prevent sewer backup"</td>
+        <td><span class="badge green">Seasonal</span></td>
+        <td>Why winter causes backups (root intrusion + frozen sections, holiday grease, increased indoor usage), camera inspection as prevention, what to do during an active backup, emergency response, tree root mitigation through relining</td>
+        <td>Services page, FAQ page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--blue)">Dec 3</td>
+        <td><strong>10 Questions Every Facility Manager Should Ask Before Hiring a Trenchless Pipe Contractor</strong></td>
+        <td>"questions to ask pipe contractor," "how to hire pipe lining company"</td>
+        <td><span class="badge blue">Commercial</span></td>
+        <td>Insurance/bonding, NASSCO certification, equipment owned vs rented, warranty terms, camera inspection included, after-hours availability, references from similar projects, how SLB answers all 10 with specifics</td>
+        <td>Commercial page, About page, Contact</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--orange)">Dec 4</td>
+        <td><strong>SLB Pipe Solutions 2026 Year in Review: Projects, Communities Served, and What's Coming in 2027</strong></td>
+        <td>"SLB Pipe Solutions 2026," brand + local searches</td>
+        <td><span class="badge orange">Brand</span></td>
+        <td>Highlight number of projects completed, cities served, notable municipal contracts, new service expansions, equipment added, team growth, what 2027 focus areas look like — builds brand authority and freshness signal</td>
+        <td>About page, all service pages, Contact</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="margin-top:32px">Publishing &amp; Promotion Checklist (for each post)</div>
+  <div class="two-col">
+    <div class="card">
+      <h4>Before Publishing</h4>
+      <ul class="bullet-list">
+        <li>Write a unique meta description (150-155 characters) targeting the primary search query</li>
+        <li>Include the target keyword in: H1, first paragraph, at least 2 H2/H3 subheadings, meta title, and URL slug</li>
+        <li>Add at least 2 internal links to service pages or service area pages</li>
+        <li>Include one CTA at the end: "Get a free estimate for [service] in [city] — call (317) 536-1811"</li>
+        <li>Add a featured image with descriptive alt text (e.g., "CIPP pipe lining in Indianapolis Indiana")</li>
+        <li>Target 800-1,200 words minimum — long enough to rank, not padded</li>
+        <li>Add FAQPage schema to any post with a Q&amp;A or FAQ section</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>After Publishing</h4>
+      <ul class="bullet-list">
+        <li>Share to SLB's Google Business Profile post (GBP posts have a 7-day shelf life — post the link within 24 hours)</li>
+        <li>Share to LinkedIn (target facility managers, municipal engineers, property managers)</li>
+        <li>Submit URL to Google Search Console for immediate indexing (Index → URL Inspection → Request Indexing)</li>
+        <li>Add an internal link from the most relevant existing service or area page to the new post</li>
+        <li>Update the blog listing page so the new post is the first visible item</li>
+        <li>Track in GSC after 30-60 days: which queries is this post ranking for? Are impressions growing?</li>
       </ul>
     </div>
   </div>
