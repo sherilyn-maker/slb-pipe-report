@@ -711,12 +711,12 @@
 
   <div class="alert info">
     <strong>Full audit of every URL in the page-sitemap.xml. All 61 pages were reviewed for title tags, H1 alignment, content depth, schema markup, and conversion elements.</strong>
-    <p>The site has a strong content foundation — most pages have 1,000–1,400 words of copy and individual title tags. The primary gaps are: (1) no schema markup anywhere across the site, (2) no customer testimonials or case studies despite working with IU Health, Duke Energy, American Honda, and P&G, (3) Louisville, KY pages have H1/title mismatches, and (4) no pricing context anywhere limits conversion for high-intent visitors.</p>
+    <p>The site has a strong technical foundation — most pages have 1,000–1,400 words of copy, individual title tags, and sitewide schema (LocalBusiness, Organization, BreadcrumbList, Review, WebSite). The remaining gaps are: (1) FAQPage and Service schema not yet added, (2) WebPage schema has 2 errors sitewide, (3) no customer testimonials or case studies despite working with IU Health, Duke Energy, American Honda, and P&G, (4) Louisville KY pages have H1/title mismatches, and (5) no pricing context anywhere.</p>
   </div>
 
   <div class="kpi-grid">
-    <div class="kpi red"><div class="kpi-num">0 / 61</div><div class="kpi-label">Pages With Schema Markup</div><div class="kpi-sub">No FAQ, Service, or LocalBusiness schema</div></div>
-    <div class="kpi red"><div class="kpi-num">0 / 61</div><div class="kpi-label">Pages With Testimonials</div><div class="kpi-sub">Fortune 500 clients not featured anywhere</div></div>
+    <div class="kpi green"><div class="kpi-num">✓ Sitewide</div><div class="kpi-label">Schema Present</div><div class="kpi-sub">LocalBusiness, Organization, BreadcrumbList, Review, WebSite</div></div>
+    <div class="kpi red"><div class="kpi-num">Missing</div><div class="kpi-label">FAQPage + Service Schema</div><div class="kpi-sub">Highest-value schema types not yet added</div></div>
     <div class="kpi orange"><div class="kpi-num">6+</div><div class="kpi-label">H1 / Title Mismatches</div><div class="kpi-sub">Mostly in Louisville KY pages</div></div>
     <div class="kpi orange"><div class="kpi-num">0 / 61</div><div class="kpi-label">Pages With Pricing Context</div><div class="kpi-sub">Not even a "starting from" range</div></div>
   </div>
@@ -727,7 +727,7 @@
       <div>
         <div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:8px">Critical — Fix First</div>
         <ul class="bullet-list">
-          <li><strong>No schema markup anywhere</strong> — no FAQPage, LocalBusiness, Service, or Organization schema. This is why the FAQ page is not appearing in People Also Ask boxes and why AI Overviews are not citing SLB as a source</li>
+          <li><strong>FAQPage and Service schema are missing</strong> — LocalBusiness, Organization, BreadcrumbList, Review, and WebSite schema are already present sitewide. The remaining gap is FAQPage schema on /about-us/faqs/ and the CIPP page, and Service schema on individual service pages. FAQPage schema is the fastest path to appearing in People Also Ask boxes and AI Overviews. WebPage schema has 2 errors sitewide — worth fixing.</li>
           <li><strong>No customer testimonials on any service page</strong> — the About page has one testimonial from a "Meridian-Kessler homeowner" but it is invisible from the rest of the site. Major clients (IU Health, Duke Energy, Honda, P&G, Kraft Foods, City of Noblesville, City of Zionsville) are only listed on the About page</li>
           <li><strong>No pricing context anywhere</strong> — competitors who show even a "$80–$250 per linear foot" range capture significantly more ready-to-buy traffic. Every page ends at "get a free estimate" which is a friction point for comparison shoppers</li>
           <li><strong>No before/after photos or project gallery</strong> — a trenchless company's strongest visual proof is "here's what we fixed" — currently absent across all 61 pages</li>
@@ -1256,7 +1256,7 @@
     <thead><tr><th>#</th><th>Action</th><th>Pages Affected</th><th>Effort</th><th>Expected Impact</th></tr></thead>
     <tbody>
       <tr><td>1</td><td><strong>Fix Louisville KY title/H1 mismatches and duplicate titles</strong> — /plumbing-louisville-ky/ and /hydro-jetting-louisville-ky/ share the same title; /louisville-ky/ hub has no H1</td><td>3 Louisville pages</td><td>Low — edit in CMS</td><td>Prevents Google confusion on which Louisville page to rank; fixes cannibalization</td></tr>
-      <tr><td>2</td><td><strong>Add FAQPage schema to /about-us/faqs/ and CIPP page</strong> — this is the fastest path to appearing in AI Overviews and People Also Ask boxes</td><td>2 pages</td><td>Low — add JSON-LD</td><td>AI Overview citations, PAA appearances for "what is CIPP" and "how long does pipe lining last"</td></tr>
+      <tr><td>2</td><td><strong>Add FAQPage schema to /about-us/faqs/ and CIPP page</strong> — LocalBusiness and Organization schema are already in place sitewide. FAQPage is the missing piece for PAA and AI Overview appearances. Also fix the 2 WebPage schema errors flagged in the Schema.org validator.</td><td>FAQ page, CIPP page</td><td>Low — add JSON-LD block</td><td>PAA appearances and AI Overview citations for "what is CIPP," "how long does pipe lining last," etc.</td></tr>
       <tr><td>3</td><td><strong>Fix Evansville hub duplicate H1</strong> — "Pipe Lining Company Evansville, IN" appears twice on the page</td><td>1 page</td><td>Very low — delete one H1</td><td>Clean page structure; minor SEO improvement</td></tr>
       <tr><td>4</td><td><strong>Add client logos to homepage and commercial/municipal pages</strong> — IU Health, Duke Energy, Honda, P&G, Kraft Foods, City of Noblesville, City of Zionsville are on About only</td><td>Home, Commercial, Municipal</td><td>Low — add logo grid</td><td>Significant conversion improvement for commercial/municipal decision-makers</td></tr>
       <tr><td>5</td><td><strong>Fix /services/ title tag</strong> — change "Residential Services" to reflect all service types (residential, commercial, municipal)</td><td>1 page</td><td>Very low</td><td>Removes confusion for commercial/municipal searchers landing on this page</td></tr>
@@ -1264,7 +1264,7 @@
       <tr><td>7</td><td><strong>Add municipal capabilities to /services/municipal-trenchless-indianapolis-in/</strong> — include named clients (Noblesville, Zionsville), RFP process, EPA/IDEM compliance</td><td>1 page</td><td>Medium — content rewrite</td><td>Converts city engineers who land on this page into qualified leads</td></tr>
       <tr><td>8</td><td><strong>Resolve /blog/ vs /about-us/blog/ duplicate URL</strong> — pick one, 301 the other, and update all internal links</td><td>Blog</td><td>Low — server config</td><td>Consolidates link equity; prevents duplicate content penalty</td></tr>
       <tr><td>9</td><td><strong>Add "50-year guarantee" callout to every service page</strong> — currently appears only on CIPP page and in one testimonial</td><td>All service pages</td><td>Low — add a badge/section</td><td>Key differentiator that reduces price objection and increases conversion</td></tr>
-      <tr><td>10</td><td><strong>Add LocalBusiness schema to homepage</strong> with name, address, phone, hours, service area, and areaServed fields</td><td>Homepage</td><td>Low — add JSON-LD</td><td>Improves Google Knowledge Panel accuracy; supports local pack rankings</td></tr>
+      <tr><td>10</td><td><strong>Add Service schema to individual service pages</strong> — LocalBusiness is already present sitewide. Adding Service schema with name, description, areaServed, and provider fields to the main service pages will improve Google's understanding of specific service offerings.</td><td>CIPP, Pipe Bursting, Hydro Jetting, Camera Inspection pages</td><td>Low — add JSON-LD</td><td>Richer search snippets for individual service queries</td></tr>
     </tbody>
   </table>
 </div>
